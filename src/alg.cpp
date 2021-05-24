@@ -11,11 +11,13 @@ return sch;
 }
 
 int countPairs2(int *arr, int len, int value) {
-int sch = 0;
-for (len; arr[len-1]>value; len--) {};
-for (int i=len; i>0; i--) {
-for (int j=0; arr[i]+arr[j] <=value;j++)
-if (arr[i]+arr[j] == value) sch++;
+int sch = 0, j = 0, r = len - 1;
+for (r; arr[r] > value; r--) {}
+for (r; r > 0; r--) {
+for (j; j < r; j++)
+if (arr[j] + arr[r] == value)
+sch++;
+j = 0;
 }
 return sch;
 }
